@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - MW Sounds</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -54,7 +54,7 @@
                 </div>
                 <div class="point">
                     <h3>🏆 Expérience et Expertise</h3>
-                    <p>des projets réalisés avec succés pour nos clients</p>
+                    <p>Des projets réalisés avec succès pour nos clients</p>
                 </div>
                 <div class="point">
                     <h3>🎵 Acoustique Optimale</h3>
@@ -66,102 +66,57 @@
                 </div>
             </div>
         </section>
-		
-<!-- Pourquoi choisir MW Sounds ? -->
-<section class="why-choose-us">
-    <h2>🎧 Pourquoi choisir MW Sounds ?</h2>
-    <div class="why-scroll-container">
-        <div class="why-scroll">
-            <!-- DUPLIQUER LES CARTES POUR UN SCROLL INFINI -->
-            <div class="why-card">
-                <div class="why-icon">🔊</div>
-                <h3>Technologie de Pointe</h3>
-                <p>Notre studio est équipé des meilleures interfaces audio, préamplis et microphones pour une qualité sonore inégalée.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon">🎼</div>
-                <h3>Mixage & Mastering Dolby Atmos</h3>
-                <p>Nous proposons un mixage immersif en Dolby Atmos, une expérience sonore unique pour vos projets musicaux.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon">🎵</div>
-                <h3>Acoustique Optimale</h3>
-                <p>Un traitement acoustique parfait pour un enregistrement cristallin et un son équilibré.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon">🎙️</div>
-                <h3>Accompagnement Sur-Mesure</h3>
-                <p>Coaching vocal, direction artistique et conseils personnalisés.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon">📀</div>
-                <h3>Production & Beatmaking</h3>
-                <p>Créez vos morceaux avec nos producteurs et beatmakers expérimentés.</p>
-            </div>
 
-            <!-- DUPLICATION DES CARTES POUR LE SCROLL INFINI -->
-            <div class="why-card">
-                <div class="why-icon">🔊</div>
-                <h3>Technologie de Pointe</h3>
-                <p>Notre studio est équipé des meilleures interfaces audio, préamplis et microphones pour une qualité sonore inégalée.</p>
+        <!-- Pourquoi choisir MW Sounds ? -->
+        <section class="why-choose-us">
+            <h2>🎧 Pourquoi choisir MW Sounds ?</h2>
+            <div class="why-scroll-container">
+                <div class="why-scroll">
+                    <div class="why-card"><div class="why-icon">🔊</div><h3>Technologie de Pointe</h3><p>Équipement professionnel et dernière génération.</p></div>
+                    <div class="why-card"><div class="why-icon">🎼</div><h3>Mixage & Mastering Dolby Atmos</h3><p>Une immersion sonore inégalée.</p></div>
+                    <div class="why-card"><div class="why-icon">🎵</div><h3>Acoustique Optimale</h3><p>Un traitement acoustique parfait.</p></div>
+                    <div class="why-card"><div class="why-icon">🎙️</div><h3>Accompagnement Sur-Mesure</h3><p>Coaching vocal et direction artistique.</p></div>
+                    <div class="why-card"><div class="why-icon">📀</div><h3>Production & Beatmaking</h3><p>Travail avec des beatmakers expérimentés.</p></div>
+                </div>
             </div>
-            <div class="why-card">
-                <div class="why-icon">🎼</div>
-                <h3>Mixage & Mastering Dolby Atmos</h3>
-                <p>Nous proposons un mixage immersif en Dolby Atmos, une expérience sonore unique pour vos projets musicaux.</p>
+        </section>
+
+        <!-- Avis Clients (Dynamique avec API Google Places) -->
+        <section class="avis-clients">
+            <h2>⭐ Nos Clients en parlent</h2>
+            <div class="avis-container">
+                <p>Chargement des avis Google...</p>
             </div>
-            <div class="why-card">
-                <div class="why-icon">🎵</div>
-                <h3>Acoustique Optimale</h3>
-                <p>Un traitement acoustique parfait pour un enregistrement cristallin et un son équilibré.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon">🎙️</div>
-                <h3>Accompagnement Sur-Mesure</h3>
-                <p>Coaching vocal, direction artistique et conseils personnalisés.</p>
-            </div>
-            <div class="why-card">
-                <div class="why-icon">📀</div>
-                <h3>Production & Beatmaking</h3>
-                <p>Créez vos morceaux avec nos producteurs et beatmakers expérimentés.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Avis Clients (Dynamique avec API Google Places) -->
-<section class="avis-clients">
-    <h2>⭐ Nos Clients en parlent</h2>
-    <div class="avis-container">
-        <p>Chargement des avis Google...</p>
-    </div>
-</section>
+    </main>
 
-</main>
+    <footer>
+        <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
+    </footer>
 
-<footer>
-    <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
-</footer>
+    <!-- Script pour charger les avis Google -->
+    <script>
+        function afficherAvisGoogle() {
+            const placeId = "ChIJySKD7QJTkUcRKSW1ZjYewRs"; // Place ID de ton studio
+            const avisContainer = document.querySelector(".avis-container");
 
-<!-- Script Google Maps Places -->
-<script>
-    function initMap() {
-        const placeId = "ChIJySKD7QJTkUcRKSW1ZjYewRs"; // Place ID de ton studio
-        const avisContainer = document.querySelector(".avis-container");
-        avisContainer.innerHTML = "<p>Chargement des avis...</p>";
+            // Vérifie que Google Maps est bien chargé
+            if (!window.google || !window.google.maps || !google.maps.places) {
+                console.error("Google Maps API non chargée !");
+                avisContainer.innerHTML = "<p>Impossible de charger les avis.</p>";
+                return;
+            }
 
-        const service = new google.maps.places.PlacesService(document.createElement("div"));
+            // Création du service Google Places
+            const service = new google.maps.places.PlacesService(document.createElement('div'));
 
-        service.getDetails(
-            {
-                placeId: placeId,
-                fields: ["name", "reviews"],
-            },
-            (place, status) => {
+            // Récupération des avis
+            service.getDetails({ placeId: placeId }, function (place, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK && place.reviews) {
-                    avisContainer.innerHTML = ""; // Efface le message "Chargement..."
-                    
-                    place.reviews.slice(0, 3).forEach(review => { // On prend max 3 avis
+                    avisContainer.innerHTML = ""; // Vide la section
+
+                    place.reviews.slice(0, 3).forEach(review => { // On affiche 3 avis max
                         const avisElement = document.createElement("div");
                         avisElement.classList.add("avis");
                         avisElement.innerHTML = `
@@ -174,15 +129,14 @@
                 } else {
                     avisContainer.innerHTML = "<p>Aucun avis disponible.</p>";
                 }
-            }
-        );
-    }
-</script>
+            });
+        }
+    </script>
 
-<!-- Charge l'API Google Maps JavaScript avec l'initMap en callback -->
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&libraries=places&callback=initMap">
-</script>
+    <!-- Charge l'API Google Maps JavaScript avec afficherAvisGoogle en callback -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&libraries=places&callback=afficherAvisGoogle">
+    </script>
 
 </body>
 </html>
