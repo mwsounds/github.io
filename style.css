@@ -1,0 +1,324 @@
+@charset "UTF-8";
+
+/* Importation de la police Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Effet de fond en Parallax */
+body {
+    background: url('images/logo full size.png') no-repeat center center fixed;
+    background-size: cover; /* L'image couvre toute la largeur */
+    background-position: center top;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Overlay plus sombre pour améliorer la lisibilité */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Réduction de la luminosité */
+    backdrop-filter: blur(5px); /* Effet de flou pour modernité */
+    z-index: -1;
+}
+
+/* Effet Parallax sur les sections pour améliorer l'illusion */
+.parallax-section {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 80px 20px;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+}
+
+/* En-tête */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-left: 20px;
+    text-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+}
+
+/* Menu de navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+    background: rgba(255, 204, 0, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+/* Contenu principal */
+main {
+    flex: 1;
+    padding: 140px 20px 40px;
+}
+
+/* Section Nos Points Forts */
+.points-forts {
+    margin: 50px auto;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+}
+
+/* Conteneur des cases */
+.points-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+}
+
+/* Style des cases */
+.point {
+    background: rgba(0, 0, 0, 0.85); /* Fond sombre */
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Animation */
+.point.active {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Style du texte */
+.point h3 {
+    color: #ffcc00;
+    margin-bottom: 5px;
+}
+
+.point p {
+    font-size: 1em;
+    color: white;
+    opacity: 0.9;
+}
+
+/* Section Pourquoi Choisir MW Sounds */
+.why-choose-us {
+    margin: 80px auto;
+    max-width: 1200px;
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Grille des cartes */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Cartes */
+.why-card {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-in-out forwards;
+}
+
+/* Effet Glow au survol */
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.5);
+}
+
+/* Icônes animées */
+.why-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation d'icône */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Titres et textes */
+.why-card h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Avis Clients */
+.avis-clients {
+    margin: 50px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* Avis modernisés */
+.avis-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Avis avec effet verre (Glassmorphism) */
+.avis {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    transition: 0.4s ease-in-out;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.avis:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.7);
+}
+
+/* Bouton */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effet lumineux sur les boutons */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease-in-out;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #ffaa00, #ff8800);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 136, 0, 0.8);
+}
+
+/* Pied de page */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin-top: auto;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+}

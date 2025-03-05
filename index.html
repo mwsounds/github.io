@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - MW Sounds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">MW SOUNDS</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="studio.html">Le Studio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Présentation du studio -->
+        <section class="presentation">
+            <h1>Bienvenue chez MW SOUNDS</h1>
+            <p>Découvrez votre studio d'enregistrement idéal situé à <strong>Barr, en Alsace</strong>, équipé des meilleures technologies pour des productions musicales de haute qualité.</p>
+            <a href="contact.html" class="btn">Réserver une session</a>
+        </section>
+
+        <!-- Localisation -->
+        <section class="localisation">
+            <h2>📍 Où nous trouver ?</h2>
+            <p>MW Sounds est situé à :</p>
+            <p><strong>6 Rue Saint Marc, 67140 Barr, Alsace, France</strong></p>
+            <iframe 
+                width="100%" 
+                height="300" 
+                frameborder="0" 
+                style="border:0" 
+                allowfullscreen 
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&q=6+Rue+Saint+Marc,+67140+Barr,+France">
+            </iframe>
+        </section>
+
+        <!-- Nos Points Forts -->
+        <section class="points-forts">
+            <h2>🚀 Nos Points Forts</h2>
+            <div class="points-container">
+                <div class="point">
+                    <h3>🎙️ Matériel Haut de Gamme</h3>
+                    <p>Un équipement professionnel pour garantir un son exceptionnel.</p>
+                </div>
+                <div class="point">
+                    <h3>🏆 Expérience et Expertise</h3>
+                    <p>des projets réalisés avec succés pour nos clients</p>
+                </div>
+                <div class="point">
+                    <h3>🎵 Acoustique Optimale</h3>
+                    <p>Un studio conçu pour une qualité sonore irréprochable.</p>
+                </div>
+                <div class="point">
+                    <h3>⏳ Sessions Flexibles</h3>
+                    <p>Des créneaux adaptés à votre emploi du temps, jour et nuit.</p>
+                </div>
+            </div>
+        </section>
+		
+		        <!-- Pourquoi choisir MW Sounds ? -->
+<!-- Pourquoi choisir MW Sounds ? (Mode Scroll Horizontal) -->
+<section class="why-choose-us">
+    <h2>🎧 Pourquoi choisir MW Sounds ?</h2>
+    <div class="why-scroll-container">
+        <div class="why-scroll">
+            <div class="why-card">
+                <div class="why-icon">🔊</div>
+                <h3>Technologie de Pointe</h3>
+                <p>Notre studio est équipé des meilleures interfaces audio, préamplis et microphones pour une qualité sonore inégalée.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎼</div>
+                <h3>Mixage & Mastering Dolby Atmos</h3>
+                <p>Une immersion sonore inégalée grâce au mixage Dolby Atmos.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎵</div>
+                <h3>Acoustique Optimale</h3>
+                <p>Un traitement acoustique parfait pour un enregistrement cristallin.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🎙️</div>
+                <h3>Accompagnement Sur-Mesure</h3>
+                <p>Coaching vocal, direction artistique et conseils personnalisés.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📀</div>
+                <h3>Production & Beatmaking</h3>
+                <p>Créez vos morceaux avec nos producteurs et beatmakers expérimentés.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Avis Clients -->
+        <section class="avis-clients">
+            <h2>⭐ Nos Clients en parlent</h2>
+            <div class="avis-container">
+                <div class="avis">
+                    <h3>🎤ART</h3>
+                    <p>"Maxime est très professionnel et saura vous accompagner pour tous vos projets en musique dans tous les domaines, je recommande à 100 % !
+                    Si vous habitez en Alsace ou dans les alentours et que vous souhaitez être accompagné dans un projet musical très qualitatif MW Sounds est là pour vous !!!"</p>
+                </div>
+                <div class="avis">
+                    <h3>ISMA ML</h3>
+                    <p>"Super expérience avec Maxime qui nous a accueilli dans de très bonnes conditions. Le studio est de très bonne qualité proposant même du mix en Dolby Atmos pour les amoureux du son et la prestation s'est passé avec succès. À recommander fort !"</p>
+                </div>
+                <div class="avis">
+                    <h3>ANNE CATHERINE WEBER</h3>
+                    <p>"C est sur YAWEB à BARR que MW a fait la démonstration de son talent. Producteur de musique MW répond tout à fait aux demandes de YAWEB !"</p>
+                </div>
+            </div>
+        </section>
+		
+		
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
+    </footer>
+
+    <!-- Script pour le slide vertical -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const points = document.querySelectorAll(".point");
+            let index = 0;
+
+            function showNextPoint() {
+                points.forEach((point, i) => {
+                    point.classList.remove("active");
+                    if (i === index) {
+                        point.classList.add("active");
+                    }
+                });
+                index = (index + 1) % points.length;
+            }
+
+            showNextPoint(); // Afficher le premier élément
+            setInterval(showNextPoint, 3000); // Change toutes les 3 secondes
+        });
+    </script>
+
+</body>
+</html>
