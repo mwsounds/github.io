@@ -141,13 +141,14 @@
         }
     </script>
 
-    <!-- Chargement de l'API Google Maps -->
+<!-- Charge l'API Google Maps -->
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&libraries=places">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&libraries=places"
+onload="afficherAvisGoogle()">
 </script>
 
-    <!-- Chargement du fichier JavaScript principal -->
-    <script src="main.js"></script>
+<!-- Charge le fichier JavaScript principal -->
+<script src="main.js" defer></script>
 
 </body>
 </html>
