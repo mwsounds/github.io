@@ -157,88 +157,79 @@ main {
     opacity: 0.9;
 }
 
-/* Section Pourquoi Choisir MW Sounds */
+/* SECTION "Pourquoi choisir MW Sounds ?" */
 .why-choose-us {
-    margin: 80px auto;
-    max-width: 1200px;
+    width: 100%;
     text-align: center;
-    padding: 50px 20px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    animation: fadeIn 1s ease-in-out;
+    padding: 50px 0;
+    background: rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Grille des cartes */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+/* Conteneur du scroll automatique */
+.why-scroll-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Conteneur avec duplication des cartes pour l'animation infinie */
+.why-scroll {
+    display: flex;
     gap: 30px;
-    margin-top: 40px;
+    width: calc(350px * 10); /* Multiplie par le nombre de cartes pour un scroll continu */
+    animation: scrollCards 20s linear infinite;
 }
 
-/* Cartes */
+/* Cartes avec un design moderne */
 .why-card {
+    flex: 0 0 350px; /* Taille uniforme pour toutes les cartes */
+    height: 280px;
     background: rgba(0, 0, 0, 0.85);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.2);
+    box-shadow: 0px 4px 15px rgba(255, 204, 0, 0.3);
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s ease-in-out forwards;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Effet Glow au survol */
+/* Effet au survol */
 .why-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.5);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.6);
 }
 
-/* Icônes animées */
+/* Icônes */
 .why-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
     display: inline-block;
-    animation: pulse 1.5s infinite alternate;
 }
 
-/* Animation d'apparition */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animation d'icône */
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    100% { transform: scale(1.1); opacity: 1; }
-}
-
-/* Titres et textes */
-.why-card h3 {
-    color: #ffcc00;
-    margin-bottom: 10px;
-}
-
-.why-card p {
-    font-size: 1.1em;
-    opacity: 0.9;
+/* Animation de défilement fluide */
+@keyframes scrollCards {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Défilement fluide jusqu'à la moitié pour répéter */
+    }
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-    .why-grid {
-        grid-template-columns: 1fr;
+    .why-scroll {
+        animation: scrollCards 25s linear infinite;
+    }
+    .why-card {
+        flex: 0 0 90%;
+        height: auto;
     }
 }
 
