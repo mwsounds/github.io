@@ -77,6 +77,11 @@
                     <div class="why-card"><div class="why-icon">🎵</div><h3>Acoustique Optimale</h3><p>Un traitement acoustique parfait.</p></div>
                     <div class="why-card"><div class="why-icon">🎙️</div><h3>Accompagnement Sur-Mesure</h3><p>Coaching vocal et direction artistique.</p></div>
                     <div class="why-card"><div class="why-icon">📀</div><h3>Production & Beatmaking</h3><p>Travail avec des beatmakers expérimentés.</p></div>
+					<div class="why-card"><div class="why-icon">🔊</div><h3>Technologie de Pointe</h3><p>Équipement professionnel et dernière génération.</p></div>
+                    <div class="why-card"><div class="why-icon">🎼</div><h3>Mixage & Mastering Dolby Atmos</h3><p>Une immersion sonore inégalée.</p></div>
+                    <div class="why-card"><div class="why-icon">🎵</div><h3>Acoustique Optimale</h3><p>Un traitement acoustique parfait.</p></div>
+                    <div class="why-card"><div class="why-icon">🎙️</div><h3>Accompagnement Sur-Mesure</h3><p>Coaching vocal et direction artistique.</p></div>
+                    <div class="why-card"><div class="why-icon">📀</div><h3>Production & Beatmaking</h3><p>Travail avec des beatmakers expérimentés.</p></div>
                 </div>
             </div>
         </section>
@@ -98,20 +103,19 @@
     <!-- Script pour charger les avis Google -->
     <script>
         function afficherAvisGoogle() {
-            const placeId = "ChIJySKD7QJTkUcRKSW1ZjYewRs"; // Place ID de ton studio
+            console.log("🔄 Chargement des avis Google...");
+
+            const placeId = "ChIJySKD7QJTkUcRKSW1ZjYewRs"; // Place ID du studio
             const avisContainer = document.querySelector(".avis-container");
 
-            // Vérifie que Google Maps est bien chargé
             if (!window.google || !window.google.maps || !google.maps.places) {
                 console.error("❌ Google Maps API non chargée !");
                 avisContainer.innerHTML = "<p>Impossible de charger les avis.</p>";
                 return;
             }
 
-            // Création du service Google Places
             const service = new google.maps.places.PlacesService(document.createElement("div"));
 
-            // Récupération des avis
             service.getDetails(
                 { placeId: placeId, fields: ["name", "rating", "reviews"] },
                 function (place, status) {
@@ -128,27 +132,36 @@
                             `;
                             avisContainer.appendChild(avisElement);
                         });
+
+                        console.log("✅ Avis Google chargés avec succès !");
                     } else {
+                        console.error("❌ Erreur API Google Places :", status);
                         avisContainer.innerHTML = "<p>Aucun avis disponible.</p>";
                     }
                 }
             );
         }
 
-        function initMap() {
-            console.log("✅ Google Maps API chargée avec succès !");
-            afficherAvisGoogle();
+        function attendreGoogleMaps() {
+            if (window.google && window.google.maps && google.maps.places) {
+                afficherAvisGoogle();
+            } else {
+                console.log("⏳ En attente de Google Maps...");
+                setTimeout(attendreGoogleMaps, 500);
+            }
         }
+
+        attendreGoogleMaps();
     </script>
 
-<!-- Charge l'API Google Maps -->
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&libraries=places"
-onload="afficherAvisGoogle()">
-</script>
+    <!-- Charge l'API Google Maps -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0jXCxckaCNHNA5DJnml9wYRIoyKZJQ4&libraries=places"
+        onload="afficherAvisGoogle()">
+    </script>
 
-<!-- Charge le fichier JavaScript principal -->
-<script src="main.js" defer></script>
+    <!-- Charge le fichier JavaScript principal -->
+    <script src="main.js" defer></script>
 
 </body>
 </html>
