@@ -662,7 +662,7 @@ iframe:active,
     transition: transform 0.1s ease-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
     mix-blend-mode: difference;
     z-index: 10000;
-    animation: vumeterPulse 1.2s infinite alternate;
+    animation: vumeterPulse 0.6s infinite alternate;
 }
 
 /* ✅ Animation pulsante type vumètre */
