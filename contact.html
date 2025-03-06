@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - MW Sounds</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -26,29 +26,84 @@
     </nav>
 </header>
 
-    <main>
-        <h1>Contact</h1>
+<main>
+    <section class="contact-section">
+        <h1>📩 Contactez-nous</h1>
         <p>Envoyez-nous un message via le formulaire ci-dessous.</p>
         
-        <form action="mailto:tonemail@example.com" method="post" enctype="text/plain">
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+        <form class="contact-form">
+            <div class="input-group">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            </div>
 
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" placeholder="Votre email" required>
+            <div class="input-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="Votre email" required>
+            </div>
 
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+            <div class="input-group">
+                <label for="sujet">Sujet :</label>
+                <input type="text" id="sujet" name="sujet" placeholder="Objet de votre message" required>
+            </div>
 
-            <button type="submit">Envoyer</button>
+            <div class="input-group">
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Envoyer</button>
         </form>
-    </main>
+    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
-    </footer>
-	
-	<script src="main.js"></script>
+<footer>
+    <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
+</footer>
+
+<script src="main.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("VXeg4Y9o2r8wGYiX8"); // ⚠ Remplace par ta Public Key EmailJS
+
+    document.querySelector(".contact-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+
+        // Récupération des valeurs du formulaire
+        const nom = document.getElementById("nom").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const sujet = document.getElementById("sujet").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Vérifier que tous les champs sont remplis
+        if (!nom || !email || !sujet || !message) {
+            alert("Veuillez remplir tous les champs.");
+            return;
+        }
+
+        // Création de l'objet à envoyer
+        const params = {
+            nom: nom,
+            email: email,
+            sujet: sujet,
+            message: message
+        };
+
+        // Envoi via EmailJS
+        emailjs.send("service_qkao4b9", "template_0lmt7zf", params)
+        .then(function (response) {
+            alert("✅ Message envoyé avec succès !");
+            document.querySelector(".contact-form").reset(); // Réinitialiser le formulaire
+        })
+        .catch(function (error) {
+            alert("❌ Erreur lors de l'envoi. Réessayez plus tard.");
+            console.error("Erreur EmailJS:", error);
+        });
+    });
+});
+</script>
 
 </body>
 </html>

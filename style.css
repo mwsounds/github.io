@@ -681,6 +681,103 @@ iframe:active,
 }
 
 
+
+
+
+
+/* ✅ SECTION CONTACT */
+.contact-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.contact-section h1 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+/* ✅ FORMULAIRE */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ✅ CHAMPS DU FORMULAIRE */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffcc00;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1em;
+    transition: 0.3s ease-in-out;
+}
+
+/* ✅ EFFET DE FOCUS */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ✅ BOUTON */
+.btn-submit {
+    padding: 12px;
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.7);
+    cursor: pointer;
+    border: none;
+}
+
+/* ✅ ANIMATION BOUTON */
+.btn-submit:hover {
+    background: linear-gradient(135deg, #ffaa00, #ff8800);
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 136, 0, 0.8);
+}
+
+/* ✅ RESPONSIVE (Mobile) */
+@media (max-width: 768px) {
+    .contact-section {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .btn-submit {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+
 /* Pied de page */
 footer {
     background: rgba(0, 0, 0, 0.8);
