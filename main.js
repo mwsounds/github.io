@@ -238,3 +238,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const menuLinks = document.querySelectorAll("nav ul li a");
+
+    menuToggle.addEventListener("click", function () {
+        menu.classList.toggle("active"); // Affiche ou cache le menu
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            menu.classList.remove("active");
+        });
+    });
+});

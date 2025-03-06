@@ -8,18 +8,23 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">MW SOUNDS</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="studio.html">Le Studio</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="galerie.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="logo">MW SOUNDS</div>
+    
+    <!-- Bouton menu burger -->
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+    <!-- Menu principal -->
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="studio.html">Le Studio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
         <h1>Le Studio</h1>
@@ -249,7 +254,25 @@
     });
 });
 		
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const menuLinks = document.querySelectorAll("nav ul li a");
+
+    menuToggle.addEventListener("click", function () {
+        menu.classList.toggle("active"); // Affiche ou cache le menu
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            menu.classList.remove("active");
+        });
+    });
+});
+		
     </script>
+	<script src="main.js"></script>
 
 </body>
 </html>
