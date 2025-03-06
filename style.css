@@ -212,6 +212,7 @@ main {
     padding: 50px 0;
     background: rgba(0, 0, 0, 0.7);
     position: relative;
+    overflow: hidden;
 }
 
 /* ✅ Conteneur du carrousel */
@@ -223,22 +224,26 @@ main {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
-    height: 300px; /* Ajustement de la hauteur */
+    overflow-x: auto;
+    height: 280px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 /* ✅ Conteneur des cartes */
 .why-scroll {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     transition: transform 0.5s ease-in-out;
     align-items: center;
+    scroll-behavior: smooth;
 }
 
-/* ✅ Cartes uniformes avec effet glow */
+/* ✅ Cartes uniformes */
 .why-card {
-    flex: 0 0 280px; /* Taille standard sur PC */
-    height: 220px; /* Hauteur ajustée */
+    flex: 0 0 260px;
+    height: 200px;
     background: rgba(0, 0, 0, 0.85);
     padding: 15px;
     border-radius: 15px;
@@ -249,6 +254,7 @@ main {
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    scroll-snap-align: center;
 }
 
 /* ✅ Effet Glow */
@@ -263,7 +269,7 @@ main {
     margin-bottom: 8px;
 }
 
-/* ✅ Boutons de navigation */
+/* ✅ Boutons de navigation (uniquement sur PC) */
 .scroll-btn {
     position: absolute;
     background: rgba(0, 0, 0, 0.8);
@@ -300,36 +306,34 @@ main {
 /* 📱 RESPONSIVE DESIGN POUR MOBILE */
 @media (max-width: 768px) {
     .why-scroll-container {
-        height: auto;
-        flex-direction: column;
-        max-width: 95%;
+        height: 220px;
         overflow-x: auto;
-        padding: 10px 0;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
     }
 
     .why-scroll {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 8px; /* 📏 Espacement réduit entre les cartes */
+        gap: 10px;
+        padding-left: 8%;
+        padding-right: 8%;
     }
 
     .why-card {
-        flex: 0 0 60%; /* 📏 Réduction de la largeur sur mobile */
-        height: 180px; /* 📏 Hauteur ajustée */
+        flex: 0 0 50%; /* 📏 Réduction de la largeur pour voir les cartes voisines */
+        height: 180px;
         scroll-snap-align: center;
-        margin: 0 auto;
     }
 
-    /* Désactiver les flèches sur mobile */
-    .scroll-btn {
-        display: none;
-    }
-
-    /* ✅ Réduction de l'icône sur mobile */
+    /* ✅ Icônes plus petites */
     .why-icon {
         font-size: 2rem;
+    }
+
+    /* ✅ Masquer les flèches sur mobile */
+    .scroll-btn {
+        display: none;
     }
 }
 
