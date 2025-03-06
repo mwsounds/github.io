@@ -92,3 +92,149 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCarousel(); // Alignement initial
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".galerie-img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    let currentIndex = 0; // Index de l'image actuelle
+
+    // Fonction pour afficher une image spécifique sans ré-ouvrir la lightbox
+    function showImage(index) {
+        if (index < 0) {
+            currentIndex = images.length - 1; // Retourne à la dernière image
+        } else if (index >= images.length) {
+            currentIndex = 0; // Revient à la première image
+        } else {
+            currentIndex = index;
+        }
+
+        // Affiche seulement l’image sans recharger la lightbox
+        lightboxImg.src = images[currentIndex].src;
+    }
+
+    // Ouvrir la lightbox et afficher l'image cliquée
+    images.forEach((image, index) => {
+        image.addEventListener("click", function () {
+            currentIndex = index;
+            lightbox.style.display = "flex"; // Ouvre la lightbox
+            showImage(currentIndex);
+        });
+    });
+
+    // Navigation entre les images avec les flèches
+    prevBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Empêche la fermeture en cliquant sur la flèche
+        showImage(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Empêche la fermeture en cliquant sur la flèche
+        showImage(currentIndex + 1);
+    });
+
+    // Fermer la lightbox au clic sur la croix
+    closeBtn.addEventListener("click", function () {
+        lightbox.style.display = "none";
+    });
+
+    // Fermer la lightbox en cliquant en dehors de l’image
+    lightbox.addEventListener("click", function (e) {
+        if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+            lightbox.style.display = "none";
+        }
+    });
+
+    // Ajout du support clavier (flèches gauche/droite pour naviguer)
+    document.addEventListener("keydown", function (e) {
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowLeft") {
+                showImage(currentIndex - 1);
+            } else if (e.key === "ArrowRight") {
+                showImage(currentIndex + 1);
+            } else if (e.key === "Escape") {
+                lightbox.style.display = "none"; // Ferme avec la touche Échap
+            }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".galerie-img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    let currentIndex = 0; // Index de l'image actuelle
+
+    // Ouvrir la lightbox et afficher l'image en plein écran
+    images.forEach((image, index) => {
+        image.addEventListener("click", function () {
+            currentIndex = index;
+            lightbox.style.display = "flex"; // Ouvre la lightbox
+            updateImage(); // Affiche l'image cliquée
+        });
+    });
+
+    // Fonction pour afficher une image spécifique sans fermer la lightbox
+    function updateImage() {
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1; // Retourne à la dernière image
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0; // Revient à la première image
+        }
+
+        // Met à jour l’image en plein écran
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.style.maxWidth = "90vw"; // Adapte à la largeur de l’écran
+        lightboxImg.style.maxHeight = "90vh"; // Adapte à la hauteur de l’écran
+        lightbox.style.alignItems = "center"; // Centre bien l’image
+        lightbox.style.justifyContent = "center";
+    }
+
+    // Navigation entre les images avec les flèches
+    prevBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Empêche la fermeture en cliquant sur la flèche
+        currentIndex--; // Passe à l’image précédente
+        updateImage();
+    });
+
+    nextBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Empêche la fermeture en cliquant sur la flèche
+        currentIndex++; // Passe à l’image suivante
+        updateImage();
+    });
+
+    // Fermer la lightbox au clic sur la croix
+    closeBtn.addEventListener("click", function () {
+        lightbox.style.display = "none";
+    });
+
+    // Fermer la lightbox en cliquant en dehors de l’image
+    lightbox.addEventListener("click", function (e) {
+        if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+            lightbox.style.display = "none";
+        }
+    });
+
+    // Ajout du support clavier (flèches gauche/droite pour naviguer)
+    document.addEventListener("keydown", function (e) {
+        if (lightbox.style.display === "flex") {
+            if (e.key === "ArrowLeft") {
+                currentIndex--;
+                updateImage();
+            } else if (e.key === "ArrowRight") {
+                currentIndex++;
+                updateImage();
+            } else if (e.key === "Escape") {
+                lightbox.style.display = "none"; // Ferme avec la touche Échap
+            }
+        }
+    });
+});

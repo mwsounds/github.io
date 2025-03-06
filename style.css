@@ -437,7 +437,120 @@ main {
     }
 }
 
+/* SECTION GALERIE */
+.galerie {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+}
 
+/* CONTAINER DE LA GALERIE */
+.galerie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* CASES UNIFORMES */
+.galerie-item {
+    width: 100%;
+    aspect-ratio: 1/1;  /* Force un carré parfait */
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* IMAGES DANS LA GALERIE */
+.galerie-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Assure un recadrage parfait */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* EFFET HOVER */
+.galerie-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* LIGHTBOX (PLEIN ÉCRAN) - CORRECTION */
+.lightbox {
+    display: none;  /* Caché par défaut */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+/* IMAGE LIGHTBOX */
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 10px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+
+
+/* ANIMATION APPARITION LIGHTBOX */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* BOUTON FERMER */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: #ffcc00;
+}
+
+/* Flèches de navigation */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Position des flèches */
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Effet au survol */
+.prev:hover, .next:hover {
+    background: rgba(255, 204, 0, 0.7);
+    color: black;
+}
 
 
 /* Pied de page */
