@@ -302,6 +302,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+	// Vérifier si l'utilisateur est sur mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // Désactiver complètement le curseur personnalisé sur mobile
+    if (isMobile) {
+        return;
+    }
     //  Création du curseur principal
     const cursor = document.createElement("div");
     cursor.classList.add("custom-cursor");
