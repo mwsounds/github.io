@@ -4,31 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Studio - MW Sounds</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="logo">MW SOUNDS</div>
-<nav>
-    <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="studio.html">Le Studio</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="studio.html">Le Studio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
         <h1>Le Studio</h1>
         <p>Découvrez notre studio avec une acoustique parfaite et des équipements professionnels.</p>
+
+        <!-- Section Notre Matériel avec Menu Animé -->
+        <section class="notre-materiel">
+            <h2>🎛️ Notre Matériel</h2>
+            <p>Cliquez sur une catégorie pour découvrir notre matériel.</p>
+
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="hardware">⚙️ Hardware</button>
+                <button class="category-btn" data-category="monitoring">🎧 Monitoring</button>
+                <button class="category-btn" data-category="daw">💻 DAW</button>
+                <button class="category-btn" data-category="vst">🔌 Plugins d'instruments</button>
+				<button class="category-btn" data-category="fx">🎚️ Plugins d'effets</button>
+            </div>
+
+            <div class="contenu-materiel">
+                <!-- Section Hardware -->
+                <div class="materiel-content active" id="hardware">
+                    <h3>⚙️ Hardware</h3>
+                    <ul>
+                        <li>🔊 Interface Audio : Focusrite Scarlett 4i4, MIDAS M32C</li>
+						<li>🔊 Snake Box: BEHRINGER SD 16</li>
+                        <li>🎛️ Console : Behringer X32</li>
+                        <li>🎹 Claviers MIDI : Komplete Kontrol A61, Novation Launchkey Mini</li>
+                        <li>🎤 Micros : TANNORY TM1</li>
+                    </ul>
+                </div>
+
+                <!-- Section Monitoring -->
+                <div class="materiel-content" id="monitoring">
+                    <h3>🎧 Monitoring</h3>
+                    <ul>
+                        <li>🔊 Enceintes :KRK ROKIT RP8 G4, KRK S10.4, YAMAHA HS7, ALESIS M1 ACTIVE MKII</li>
+                        <li>🎧 Casques : Beyerdynamic DT 990 Pro 250 OHM LIMITED EDITION</li>
+                        <li>🔎 Contrôle : Behringer Studio XL</li>
+                    </ul>
+                </div>
+
+                <!-- Section DAW -->
+                <div class="materiel-content" id="daw">
+                    <h3>💻 Digital Audio Workstation (DAW)</h3>
+                    <ul>
+                        <li>🎼 Logic Pro X</li>
+                        <li>🎵 FL Studio</li>
+                        <li>🎙️ Pro Tools</li>
+                        <li>🔊 Ableton Live</li>
+                    </ul>
+                </div>
+
+                <!-- Section Plugins -->
+                <div class="materiel-content" id="vst">
+                    <h3>🔌 Plugins d'instruments</h3>
+                    <ul>
+                        <li>Arturia Full Bundle</li>
+						<li>EFunk Synth</li>
+						<li>LOFI Pande</li>
+						<li>Kilohearts Multipass</li>
+						<li>Sylenth 1</li>
+						<li>Electra X</li>
+						<li>Dune 3</li>
+						<li>Ana 2</li>
+						<li>Serum</li>
+						<li>Nexus 4</li>
+                        <li><strong>Native Instruments Komplete 14 Ultimate Collector's Edition</strong></li>
+                        
+                    </ul>
+				</div>
+					
+				<div class="materiel-content" id="fx">	
+					<h3>🎚️ Plugins d'effets</h3>
+					<ul>
+						<li>Izotope Mix and Master Bundle, Neutron, RX 11</li>
+                        <li>Valhalla Reverbs</li>
+						<li>Fabfilter Bundle</li>
+						<li>Valhalla Reverbs Bundle</li>
+						<li>SSL Bundle</li>
+						<li>Kilohearts FX Bundle</li>
+						<li>Dada Life Bundle</li>
+						<li>Softube Bundle</li>
+						<li>Soundtoys Bundle</li>
+						<li>Nuro Audio Bundle</li>
+						<li>Techivation bundle</li>
+						<li>Waves Platinium Bundle</li>
+						<li>Nicky Romero Kickstart</li>
+						<li>Cableguys Bundle</li>
+						<li><strong>Native Instruments Komplete 14 Ultimate Collector's Edition (FX)</strong></li>
+					</ul>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".category-btn");
+            const sections = document.querySelectorAll(".materiel-content");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Retirer la classe active de tous les boutons
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    // Afficher la section correspondante et cacher les autres
+                    sections.forEach(section => {
+                        section.classList.remove("active");
+                        if (section.id === this.dataset.category) {
+                            section.classList.add("active");
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
