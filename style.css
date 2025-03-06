@@ -205,7 +205,7 @@ main {
     opacity: 0.9;
 }
 
-/* SECTION "Pourquoi choisir MW Sounds ?" */
+/* ✅ SECTION "Pourquoi choisir MW Sounds ?" */
 .why-choose-us {
     width: 100%;
     text-align: center;
@@ -214,7 +214,7 @@ main {
     position: relative;
 }
 
-/* Conteneur du carrousel */
+/* ✅ Conteneur du carrousel */
 .why-scroll-container {
     width: 100%;
     max-width: 800px;
@@ -224,37 +224,23 @@ main {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    height: 320px; /* Hauteur ajustée pour que les flèches soient alignées */
+    height: 300px; /* Ajustement de la hauteur */
 }
 
-/* Effet flou sur les côtés */
-.why-scroll-container::before,
-.why-scroll-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
-    z-index: 2;
-}
-.why-scroll-container::before { left: 0; }
-.why-scroll-container::after { right: 0; background: linear-gradient(to left, rgba(0, 0, 0, 0.7), transparent); }
-
-/* Conteneur des cartes */
+/* ✅ Conteneur des cartes */
 .why-scroll {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     transition: transform 0.5s ease-in-out;
-    align-items: center; /* Assure l'alignement des cartes */
+    align-items: center;
 }
 
-/* Cartes uniformes avec effet glow visible */
+/* ✅ Cartes uniformes avec effet glow */
 .why-card {
-    flex: 0 0 300px;
-    height: 250px; /* Augmenté pour laisser respirer le glow */
+    flex: 0 0 280px; /* Taille standard sur PC */
+    height: 220px; /* Hauteur ajustée */
     background: rgba(0, 0, 0, 0.85);
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(255, 204, 0, 0.3);
     text-align: center;
@@ -265,48 +251,86 @@ main {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Effet Glow visible */
+/* ✅ Effet Glow */
 .why-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 20px rgba(255, 204, 0, 0.8); /* Effet glow plus large */
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.7);
 }
 
-/* Icônes */
+/* ✅ Icônes */
 .why-icon {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    display: inline-block;
+    font-size: 2.5rem;
+    margin-bottom: 8px;
 }
 
-/* Boutons de navigation */
+/* ✅ Boutons de navigation */
 .scroll-btn {
     position: absolute;
     background: rgba(0, 0, 0, 0.8);
     color: white;
     border: none;
-    font-size: 24px;
-    padding: 15px;
+    font-size: 22px;
+    padding: 12px;
     cursor: pointer;
     z-index: 3;
     transition: background 0.3s ease-in-out;
-    height: 60px;
-    width: 60px; /* Assure un bouton carré */
+    height: 50px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Boutons arrondis */
+    border-radius: 50%;
 }
 
-/* Effet hover sur les flèches */
+/* ✅ Effet hover sur les flèches */
 .scroll-btn:hover {
     background: rgba(255, 204, 0, 0.8);
 }
 
-/* Placement au centre verticalement dans le conteneur */
+/* ✅ Placement des flèches */
 .left-btn, .right-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%); /* Centre les boutons */
+    transform: translateY(-50%);
+}
+
+.left-btn { left: -10px; }
+.right-btn { right: -10px; }
+
+/* 📱 RESPONSIVE DESIGN POUR MOBILE */
+@media (max-width: 768px) {
+    .why-scroll-container {
+        height: auto;
+        flex-direction: column;
+        max-width: 95%;
+        overflow-x: auto;
+        padding: 10px 0;
+    }
+
+    .why-scroll {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 8px; /* 📏 Espacement réduit entre les cartes */
+    }
+
+    .why-card {
+        flex: 0 0 60%; /* 📏 Réduction de la largeur sur mobile */
+        height: 180px; /* 📏 Hauteur ajustée */
+        scroll-snap-align: center;
+        margin: 0 auto;
+    }
+
+    /* Désactiver les flèches sur mobile */
+    .scroll-btn {
+        display: none;
+    }
+
+    /* ✅ Réduction de l'icône sur mobile */
+    .why-icon {
+        font-size: 2rem;
+    }
 }
 
 /* Placement horizontal */

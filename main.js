@@ -255,3 +255,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".category-btn");
+    const sections = document.querySelectorAll(".materiel-content");
+
+    // Vérification si les éléments existent
+    if (!buttons.length || !sections.length) {
+        console.error("Éléments de la section 'Notre Matériel' non trouvés.");
+        return;
+    }
+
+    // Fonction pour activer une catégorie
+    function activerCategorie(category) {
+        // Désactiver toutes les catégories et cacher toutes les sections
+        buttons.forEach(btn => btn.classList.remove("active"));
+        sections.forEach(section => {
+            section.classList.remove("active");
+            section.style.display = "none"; // Cache la section
+        });
+
+        // Activer le bon bouton et afficher la bonne section
+        const activeButton = document.querySelector(`[data-category="${category}"]`);
+        const activeSection = document.getElementById(category);
+
+        if (activeButton && activeSection) {
+            activeButton.classList.add("active");
+            activeSection.style.display = "block"; // Affiche la section
+            setTimeout(() => activeSection.classList.add("active"), 10); // Ajoute l'animation après un court délai
+        }
+    }
+
+    // Ajouter l'événement "click" sur chaque bouton
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const category = this.dataset.category;
+            activerCategorie(category);
+        });
+    });
+
+    // Activer la première catégorie par défaut
+    if (buttons.length > 0) {
+        activerCategorie(buttons[0].dataset.category);
+    }
+});
