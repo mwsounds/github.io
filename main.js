@@ -377,20 +377,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    const rightBtn = document.querySelector(".right-btn");
-    const leftBtn = document.querySelector(".left-btn");
-
-    if (rightBtn && leftBtn) {
-        rightBtn.addEventListener("click", function () {
-            console.log("Bouton droit cliqué !");
-        });
-
-        leftBtn.addEventListener("click", function () {
-            console.log("Bouton gauche cliqué !");
-        });
-    } else {
-        console.error(" Les boutons de défilement ne sont pas trouvés.");
-    }
-});
