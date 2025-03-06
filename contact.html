@@ -73,26 +73,22 @@ document.addEventListener("DOMContentLoaded", function () {
         const message = document.getElementById("message").value;
 
         if (!nom || !email || !sujet || !message) {
-            alert("Veuillez remplir tous les champs.");
+            alert("⚠️ Veuillez remplir tous les champs.");
             return;
         }
 
-        try {
-            const response = await fetch("https://email-proxy.mwsoundsmusic.workers.dev/", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ nom, email, sujet, message })
-            });
+        // 📩 Envoi sécurisé via le proxy Cloudflare
+        const response = await fetch("https://email-proxy.mwsoundsmusic.workers.dev/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nom, email, sujet, message }),
+        });
 
-            const result = await response.json();
-            alert(result.message);
+        const result = await response.json();
+        alert(result.message);
 
-            if (result.success) {
-                document.querySelector(".contact-form").reset();
-            }
-        } catch (error) {
-            alert("❌ Une erreur est survenue, veuillez réessayer plus tard.");
-            console.error("Erreur de requête:", error);
+        if (result.success) {
+            document.querySelector(".contact-form").reset();
         }
     });
 });
