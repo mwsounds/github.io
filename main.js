@@ -299,3 +299,73 @@ document.addEventListener("DOMContentLoaded", function () {
         activerCategorie(buttons[0].dataset.category);
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    //  Création du curseur principal
+    const cursor = document.createElement("div");
+    cursor.classList.add("custom-cursor");
+    document.body.appendChild(cursor);
+
+    let posX = 0, posY = 0;
+    let targetX = 0, targetY = 0;
+    const smoothing = 1;
+    let isOnMap = false; //  Variable pour gérer la carte
+
+    document.addEventListener("mousemove", function (e) {
+        targetX = e.clientX;
+        targetY = e.clientY;
+    });
+
+    function animateCursor() {
+        if (!isOnMap) {
+            posX += (targetX - posX) * smoothing;
+            posY += (targetY - posY) * smoothing;
+            cursor.style.left = `${posX}px`;
+            cursor.style.top = `${posY}px`;
+        }
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    //  Détection propre et immédiate de l'entrée/sortie de la carte
+    const googleMap = document.querySelector("iframe");
+    if (googleMap) {
+        googleMap.addEventListener("mouseover", function (event) {
+            const rect = googleMap.getBoundingClientRect();
+            if (
+                event.clientX >= rect.left &&
+                event.clientX <= rect.right &&
+                event.clientY >= rect.top &&
+                event.clientY <= rect.bottom
+            ) {
+                cursor.style.display = "none"; //  Masque immédiatement sans latence
+                isOnMap = true;
+            }
+        });
+
+        googleMap.addEventListener("mouseout", function (event) {
+            const rect = googleMap.getBoundingClientRect();
+            if (
+                event.clientX < rect.left ||
+                event.clientX > rect.right ||
+                event.clientY < rect.top ||
+                event.clientY > rect.bottom
+            ) {
+                cursor.style.display = "block"; //  Réaffiche immédiatement le curseur
+                isOnMap = false;
+            }
+        });
+    }
+
+    //  Masquer le curseur personnalisé quand il quitte la fenêtre
+    document.addEventListener("mouseleave", function () {
+        cursor.style.opacity = "0";
+    });
+
+    document.addEventListener("mouseenter", function () {
+        if (!isOnMap) {
+            cursor.style.opacity = "1";
+        }
+    });
+});

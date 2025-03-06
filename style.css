@@ -624,6 +624,72 @@ main {
 }
 
 
+
+
+
+/* ✅ Cache le curseur natif sur tout le site */
+* {
+    cursor: none !important;
+}
+
+/* ✅ Active le curseur natif UNIQUEMENT sur Google Maps */
+iframe,
+.gm-style *,
+.gm-style canvas {
+    pointer-events: auto !important;
+    cursor: grab !important; /* ✅ Curseur normal pour la navigation */
+}
+
+/* ✅ Quand on clique pour déplacer la map */
+iframe:active,
+.gm-style:active *,
+.gm-style canvas:active {
+    cursor: grabbing !important;
+}
+
+
+
+
+/* ✅ Curseur principal (effet vumètre) */
+.custom-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.9) 30%, rgba(255, 204, 0, 0.6) 60%, transparent 80%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+    mix-blend-mode: difference;
+    z-index: 10000;
+    animation: vumeterPulse 1.2s infinite alternate;
+}
+
+/* ✅ Animation pulsante type vumètre */
+@keyframes vumeterPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 0px 10px rgba(255, 255, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 20px rgba(255, 136, 0, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.8);
+    }
+}
+
+/* ✅ Effet d'expansion au clic */
+.custom-cursor.click {
+    transform: scale(1.5);
+    box-shadow: 0px 0px 30px rgba(255, 136, 0, 0.9);
+    background: rgba(255, 0, 0, 0.8);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-in-out, background 0.1s ease-in-out;
+}
+
+
 /* Pied de page */
 footer {
     background: rgba(0, 0, 0, 0.8);
