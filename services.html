@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - MW Sounds</title>
-    <meta name="description" content="Nos services : enregistrement, mixage, mastering et production musicale. Faites sonner votre musique avec MW Sounds !">
-    <meta name="keywords" content="studio d'enregistrement, production musicale, mixage, mastering, beatmaking, MW Sounds, Alsace, Barr">
+    <title>Services - MW Sounds</title>
+    <meta name="description" content="Nos services : enregistrement de voix et instruments, création d’instrumentales, mixage en stéréo et Dolby Atmos, mastering. Faites sonner votre musique avec MW Sounds !">
+    <meta name="keywords" content="studio d'enregistrement, production musicale, mixage, mastering, beatmaking, MW Sounds, Alsace, Barr, Dolby Atmos, enregistrement voix, enregistrement instruments">
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
 </head>
 <body>
 
 <header>
     <div class="logo">MW SOUNDS</div>
-    
-    <!-- Bouton menu burger -->
     <button class="menu-toggle" id="menu-toggle">&#9776;</button>
-
-    <!-- Menu principal -->
     <nav id="menu">
         <ul>
             <li><a href="index.html">Accueil</a></li>
@@ -29,16 +27,125 @@
     </nav>
 </header>
 
-    <main>
+<main>
+    <section class="services">
         <h1>Nos Services</h1>
-        <p>Enregistrement, mixage, mastering, production musicale.</p>
-    </main>
+        <p>Découvrez nos services d’enregistrement, mixage, mastering et production musicale.</p>
 
-    <footer>
-        <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
-    </footer>
+        <div class="services-container">
+            <!-- Enregistrement -->
+            <div class="service" onclick="toggleService(this)">
+                <h2>🎙️ Enregistrement</h2>
+                <div class="service-description">
+                    <button class="close-btn" onclick="event.stopPropagation(); closeService(this);">✖</button>
+                    <p>Nous enregistrons vos voix et instruments avec une qualité professionnelle.</p>
+                </div>
+            </div>
+
+            <!-- Création d’instrumentales -->
+            <div class="service" onclick="toggleService(this)">
+                <h2>🎼 Création d'instrumentales</h2>
+                <div class="service-description">
+                    <button class="close-btn" onclick="event.stopPropagation(); closeService(this);">✖</button>
+                    <p>Des beats sur mesure adaptés à votre style musical.</p>
+                </div>
+            </div>
+
+            <!-- Mixage -->
+            <div class="service" onclick="toggleService(this)">
+                <h2>🎚️ Mixage</h2>
+                <div class="service-description">
+                    <button class="close-btn" onclick="event.stopPropagation(); closeService(this);">✖</button>
+                    <p>Nous mixons en stéréo et en Dolby Atmos pour un rendu sonore optimal.</p>
+                </div>
+            </div>
+
+            <!-- Mastering -->
+            <div class="service" onclick="toggleService(this)">
+                <h2>🔊 Mastering</h2>
+                <div class="service-description">
+                    <button class="close-btn" onclick="event.stopPropagation(); closeService(this);">✖</button>
+                    <p>Optimisation finale pour un son puissant et équilibré.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 	
-	<script src="main.js"></script>
+    <section class="audio-demos">
+        <h2>🎶 Écoutez nos démos</h2>
+        
+        <div class="demo">
+            <p>🎤 Enregistrement de musiciens</p>
+            <div class="audio-wrapper">
+                <audio class="player" controls>
+                    <source src="audios/rec.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+            
+        <div class="demo">
+            <p>🎤 Enregistrement d'artiste</p>
+            <div class="audio-wrapper">
+                <audio class="player" controls>
+                    <source src="audios/recmix.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        <div class="demo">
+            <p>🎹 Instrumentale</p>
+            <div class="audio-wrapper">
+                <audio class="player" controls>
+                    <source src="audios/trap.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        <div class="demo">
+            <p>🎧 Mixage & Mastering</p>
+            <div class="audio-wrapper">
+                <audio class="player" controls>
+                    <source src="audios/mixmas.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 MW Sounds - Tous droits réservés</p>
+</footer>
+
+<script src="main.js"></script>
+
+<!-- Gestion des services -->
+<script>
+function toggleService(service) {
+    // Ferme tous les services avant d'ouvrir un autre
+    document.querySelectorAll(".service").forEach(s => {
+        if (s !== service) {
+            s.classList.remove("active");
+        }
+    });
+
+    // Active ou désactive la description du service cliqué
+    service.classList.toggle("active");
+}
+
+function closeService(button) {
+    button.parentElement.parentElement.classList.remove("active");
+}
+</script>
+
+<!-- Activation de Plyr.js -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const players = Array.from(document.querySelectorAll('.player')).map(player => new Plyr(player, {
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume'],
+        volume: 0.8
+    }));
+});
+</script>
 
 </body>
 </html>

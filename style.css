@@ -778,6 +778,189 @@ iframe:active,
 }
 
 
+
+/* ✅ SECTION SERVICES AVEC MISE EN PAGE HORIZONTALE */
+.services {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+    overflow-x: auto; /* Permet le défilement sur mobile */
+    white-space: nowrap;
+}
+
+/* ✅ Conteneur des services */
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap; /* Empêche les retours à la ligne */
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+/* ✅ Style des cases */
+.service {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* ✅ Titre correctement centré et ajusté */
+.service h2 {
+    font-size: 1.2em; /* Réduction pour éviter le débordement */
+    color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 90%; /* Évite que le texte dépasse */
+    white-space: normal; /* Permet le retour à la ligne */
+    word-wrap: break-word;
+}
+
+/* ✅ Icône bien positionnée */
+.service h2 img {
+    width: 20px;
+    height: 20px;
+}
+
+/* ✅ Description ajustée pour éviter les débordements */
+.service .service-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    padding: 15px;
+    font-size: 1em; /* Taille de police ajustée */
+    overflow: hidden;
+}
+
+/* ✅ Ajustement du texte de description */
+.service .service-description p {
+    max-width: 90%; /* Empêche le texte de s'étaler sur toute la largeur */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    line-height: 1.4;
+	white-space: normal;
+}
+
+/* ✅ Affichage de la description au clic */
+.service.active .service-description {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ✅ Bouton retour bien positionné */
+.service .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #ffcc00;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* ✅ Ajout d'un effet de scroll fluide sur mobile */
+@media (max-width: 768px) {
+    .services-container {
+        overflow-x: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+
+/* ✅ Conteneur des démos */
+.audio-demos {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* ✅ Titre */
+.audio-demos h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* ✅ Blocs audio */
+.demo {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.3);
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ Texte des titres */
+.demo p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+/* ✅ Conteneur du lecteur */
+.audio-wrapper {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* ✅ Style du lecteur Plyr.js */
+.plyr {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+
 /* Pied de page */
 footer {
     background: rgba(0, 0, 0, 0.8);
