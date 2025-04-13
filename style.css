@@ -218,7 +218,7 @@ main {
 /* ✅ Conteneur du carrousel */
 .why-scroll-container {
     width: 400%;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -231,16 +231,16 @@ main {
     padding-right: 1%;
 }
 
-/* ✅ Conteneur des cartes */
+/* Conteneur des cartes */
 .why-scroll {
     display: flex;
     gap: 10px;
     transition: transform 0.9s ease-in-out;
-    align-items: center;
+    /*align-items: center;*/
     scroll-behavior: smooth;
 }
 
-/* ✅ Cartes uniformes */
+/* Cartes uniformes */
 .why-card {
     flex: 0 0 260px;
     height: 200px;
