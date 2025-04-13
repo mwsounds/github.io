@@ -209,7 +209,7 @@ main {
 .why-choose-us {
     width: 100%;
     text-align: center;
-    padding: 50px 0;
+    padding: 90px 0;
     background: rgba(0, 0, 0, 0.7);
     position: relative;
     overflow: hidden;
@@ -217,7 +217,7 @@ main {
 
 /* ✅ Conteneur du carrousel */
 .why-scroll-container {
-    width: 100%;
+    width: 400%;
     max-width: 800px;
     margin: auto;
     display: flex;
@@ -227,15 +227,15 @@ main {
     overflow-x: auto;
     height: 280px;
     padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 6%;
+    padding-right: 1%;
 }
 
 /* ✅ Conteneur des cartes */
 .why-scroll {
     display: flex;
-    gap: 12px;
-    transition: transform 0.5s ease-in-out;
+    gap: 23px;
+    transition: transform 0.9s ease-in-out;
     align-items: center;
     scroll-behavior: smooth;
 }
@@ -253,14 +253,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     scroll-snap-align: center;
+    
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
 }
 
-/* ✅ Effet Glow */
 .why-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.7);
+    transform: rotateY(180deg) scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
 }
 
 /* ✅ Icônes */
@@ -655,21 +656,21 @@ iframe:active,
     position: fixed;
     width: 30px;
     height: 30px;
-    background: linear-gradient(135deg, #ffcc00, #ff8800); /* Couleurs vives */
+    background: linear-gradient(135deg, #6aa84f, #ff1800); /* Couleurs vives */
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
     z-index: 10000;
-    animation: vumeterPulse 0.6s infinite alternate;
+    animation: vumeterPulse 0.8s infinite alternate;
     box-shadow: 0px 0px 15px rgba(255, 136, 0, 0.7); /* Effet glow */
 }
 
 /* ✅ Animation effet vumètre (pulsation) */
 @keyframes vumeterPulse {
-    0% { transform: scale(1); background: #ffcc00; box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.7); }
+    0% { transform: scale(1); background: #6aa84f; box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.7); }
     50% { transform: scale(1.1); background: #ffaa00; box-shadow: 0px 0px 15px rgba(255, 136, 0, 0.8); }
-    100% { transform: scale(1.2); background: #ff8800; box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.9); }
+    100% { transform: scale(1.2); background: #f44336; box-shadow: 0px 0px 20px rgba(255, 102, 0, 0.9); }
 }
 
 /* ✅ Effet d'expansion au clic */

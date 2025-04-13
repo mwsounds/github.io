@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(cursor);
 
     let posX = 0, posY = 0;
-    let targetX = 0, targetY = 0;
+    let targetX = -300, targetY = -300;
     const smoothing = 1;
     let isOnMap = false; //  Variable pour gérer la carte
 
