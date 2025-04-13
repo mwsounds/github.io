@@ -234,7 +234,7 @@ main {
 /* ✅ Conteneur des cartes */
 .why-scroll {
     display: flex;
-    gap: 23px;
+    gap: 10px;
     transition: transform 0.9s ease-in-out;
     align-items: center;
     scroll-behavior: smooth;
